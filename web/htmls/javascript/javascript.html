@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>reveal-md</title>
+    <link rel="stylesheet" href="./css/reveal.css" />
+    <link rel="stylesheet" href="./css/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/github.css" />
+    <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./_assets/style.css" />
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><style>
+.reveal code {
+  background: lightgray;
+  padding: 5px;
+}
+</style>
+
+# Javascript
+</script></section><section ><section data-markdown><script type="text/template">
+
+## Javascript
+
+ist eine interpretierte Sprache, die von Browsern intepretiert wird.
+</script></section><section data-markdown><script type="text/template">
+1. Chrome fragt Adresse an
+2. Server liefert HTML Dokument mit Javascript zurück
+3. Chrome intepretiert HTML, CSS, Javascript
+
+![http-communication](./img/http_communication.png)
+</script></section><section data-markdown><script type="text/template">
+```html
+<html>
+  <head>
+    <script type=”text/javascript”>
+      function onHello(event) {
+        event.target.innerHTML = "World";
+      }
+
+      function outHello(event) {
+        event.target.innerHTML = "Hello";
+      }
+
+      var element = document.getElementById("hello");
+      element.addEventListener("mouseover", onHello);
+      element.addEventListener("mouseleave", outHello);
+    __SCRIPT_END__
+  </head>
+  <body>
+    <p>Hallo</p>
+  </body>
+</html>
+```
+</script></section></section><section  data-markdown><script type="text/template">
+## Variablen, Bedingungen und Schleifen
+</script></section><section ><section data-markdown><script type="text/template">
+## Variablen in Javascript
+</script></section><section data-markdown><script type="text/template">
+Variablen werden mit `var` eingeleitet.
+
+```javascript
+var a = 2;
+var b = 'hello world';
+var c = 3.5;
+var d = true;
+```
+</script></section></section><section ><section data-markdown><script type="text/template">
+## Bedingungen in Javascript
+</script></section><section data-markdown><script type="text/template">
+Javascript hat zwei Gleichheitsoperatoren `==` und `===` [Link](https://developer.mozilla.org/de/docs/Web/JavaScript/Vergleiche_auf_Gleichheit_und_deren_Verwendung).
+
+
+- `==` prüft auf "lose Gleichheit"
+- `===` prüft auf "strikte Gleichheit"
+
+
+```javascript
+var a = 2;
+var b = '2';
+if (a == b) {
+  console.log('works!');
+} else {
+  console.log('jumps not in here');
+}
+
+if (a === b) {
+  console.log('doesnt work!');
+} else {
+  console.log('jumps here');
+}
+```
+</script></section><section data-markdown><script type="text/template">
+Ansonsten gelten die allgemeinen Vergleichsoperatoren:
+
+`>`, `<`, `<=`, `>=`
+</script></section></section><section ><section data-markdown><script type="text/template">
+## Schleifen in Javascript
+
+[Link](https://wiki.selfhtml.org/wiki/JavaScript/Schleife#Schleifen_mit_.22for.22)
+</script></section><section data-markdown><script type="text/template">
+### For-Schleife
+
+```javascript
+for (var variable = anfangswert; abbruchbedingung; inkrement) {
+  ...
+}
+```
+</script></section><section data-markdown><script type="text/template">
+Beispiel
+
+```javascript
+var sum = 0;
+
+for (var i = 0; i <= 100; i++) {
+  sum = sum + 1;
+}
+
+console.log(sum);
+```
+</script></section><section data-markdown><script type="text/template">
+### Do-While-Schleife
+
+```javascript
+var confirmed = false;
+
+do {
+  confirmed = confirm(
+    'Wollen Sie diese Seite wirklich sehen?'
+  );
+} while(!confirmed)
+```
+</script></section><section data-markdown><script type="text/template">
+### While-Schleife
+
+```javascript
+var confirmed = false;
+
+while(!confirmed) {
+  confirmed = confirm(
+    'Wollen Sie diese Seite wirklich sehen?'
+  );
+}
+```
+</script></section><section data-markdown><script type="text/template">
+Eine `Do-While-Schleife` lässt sich immer in eine `While-Schleife` übertragen.
+
+Wie?
+
+```javascript
+var confirmed = false;
+
+while(!confirmed) {
+  confirmed = confirm(
+    'Wollen Sie diese Seite wirklich sehen?'
+  );
+}
+```
+</script></section></section><section ><section data-markdown><script type="text/template">
+## Javascript Arrays
+</script></section><section data-markdown><script type="text/template">
+### Motivation
+
+Werte gemeinsam in eine Variable speichern
+
+statt
+```javascript
+var a1 = 2;
+var a2 = 4;
+var a3 = 6;
+```
+
+so
+```javascript
+var a = [2, 4, 6];
+```
+</script></section><section data-markdown><script type="text/template">
+### Auf Werte zugreifen
+
+Der Index muss eine integer Zahl sein.
+
+```javascript
+var a = [2, 4, 6];
+console.log(a[0]); // 2
+console.log(a[1]); // 4
+console.log(a[2]); // 6
+```
+</script></section><section data-markdown><script type="text/template">
+### Iterieren
+
+```javascript
+var a = [2, 4, 6];
+for (var i = 0; i < a.length(); i++) {
+  console.log(a[i]);
+}
+```
+</script></section><section data-markdown><script type="text/template">
+### Wert hinzufügen
+
+[Link](https://wiki.selfhtml.org/wiki/JavaScript/Objekte/Array/push)
+
+```javascript
+var a = [2, 4, 6];
+a.push(8);
+console.log(a); // [2, 4, 6, 8]
+```
+</script></section><section data-markdown><script type="text/template">
+### Wert löschen
+
+[Link](https://wiki.selfhtml.org/wiki/JavaScript/Objekte/Array/splice)
+
+```javascript
+var a = [2, 4, 6];
+a.splice(1, 1);
+console.log(a); // [2, 6]
+```
+</script></section></section><section ><section data-markdown><script type="text/template">
+## Javascript Objects
+</script></section><section data-markdown><script type="text/template">
+### Javascript Objects (Objekte)
+
+sind das wichtigste Konzept in Javascript.
+</script></section><section data-markdown><script type="text/template">
+### Motivation
+
+statt
+```javascript
+var firstName = 'Michael';
+var lastName = 'Bykovski';
+var age = 25;
+```
+
+so
+```javascript
+var human = {
+  firstName: 'Michael',
+  lastName: 'Bykovski',
+  age: 25,
+}
+```
+</script></section><section data-markdown><script type="text/template">
+### Auf Werte zugreifen
+
+1. Mit Punkt und dem Indexnamen
+2. Wie bei einem Array über den Indexnamen
+
+```javascript
+var human = {
+  firstName: 'Michael',
+  lastName: 'Bykovski',
+  age: 25,
+}
+
+console.log(human.firstName); // Michael
+console.log(human['lastName']); // Bykovski
+```
+</script></section><section data-markdown><script type="text/template">
+### Werte hinzufügen
+
+Werte hinzufügen, wie beim Zugriff.
+
+```javascript
+var human = {
+  firstName: 'Michael',
+  lastName: 'Bykovski',
+  age: 25,
+}
+
+human['city'] = 'Wiesbaden';
+human.city = 'Wiesbaden';
+```
+</script></section></section><section ><section data-markdown><script type="text/template">
+## Javscript Funktionen
+
+Funktionen kapseln `Code-Anweisungen innerhalb eines Namensraum` ab.
+Alle Variablen, die innerhalb der Funktion definiert wurden, werden beim `Abschluss der Funktion gelöscht`.
+</script></section><section data-markdown><script type="text/template">
+### Syntax
+
+```javascript
+function name(parameter1, parameter2, paramenterN) {
+  // code to be executed
+}
+
+function name(parameter1, parameter2, paramenterN) {
+  // code to be executed
+  return x;
+}
+```
+</script></section><section data-markdown><script type="text/template">
+### Beispiel
+
+```javascript
+var human = {
+  firstName: 'Michael',
+  lastName: 'Bykovski',
+  age: 25,
+}
+
+function fullName(humanObject) {
+  var fullNameVar = humanObject.firstName + ' ' + humanObject.lastName;
+  return fullNameVar;
+}
+
+console.log(fullName(human)); // Michael Bykovski
+console.log(fullNameVar); // error: fullNameVar is not defined
+```
+</script></section><section data-markdown><script type="text/template">
+### Weiteres Beispiel
+
+```javascript
+var human = {
+  firstName: 'Michael',
+  lastName: 'Bykovski',
+  age: 25,
+}
+
+function setFullName(humanObject) {
+  humanObject.fullName = humanObject.firstName + ' ' + humanObject.lastName;
+}
+
+console.log(setFullName(human)); // undefined
+console.log(human.fullName); // Michael Bykovski
+```
+</script></section><section data-markdown><script type="text/template">
+### Vereinigung und `this` keyword
+
+```javascript
+var human = {
+  firstName: 'Michael',
+  lastName: 'Bykovski',
+  age: 25,
+  fullName: function() {
+    return this.firstName + ' ' + this.lastName;
+  }
+}
+
+console.log(human.fullName()); // Michael Bykovski
+```</script></section></section><section ><section data-markdown><script type="text/template">
+# Das `window` object
+
+[Link](https://wiki.selfhtml.org/wiki/JavaScript/Window)
+</script></section><section data-markdown><script type="text/template">
+Das `window` object enthält Objekte, Eigenschaften und Funktionen, die der Browser und das aktuelle Fenster (in dem das Javascript ausgeführt wird) bereitstellen.
+</script></section><section data-markdown><script type="text/template">
+Auf das `window` object kann jederzeit und überall zugegriffen werden, da es so elementar ist. Es ist "global" verfügbar.
+
+```javascript
+console.log(window.innerWidth); // 700
+var result = prompt('Bitte geben Sie eine Zahl ein: ');
+```
+</script></section></section><section ><section data-markdown><script type="text/template">
+### Das `document` object
+
+enthält Funktionen, mit denen sich auf DOM Elemente zugreifen, manipulieren, hinzufügen und löschen lassen.
+
+[Link](https://wiki.selfhtml.org/wiki/JavaScript/DOM/Document/)
+
+[DOM](https://wiki.selfhtml.org/wiki/DOM) = Document Object Model ist eine Repräsentierung aller HTML Elemente im HTML Dokument als Javascript Objekte.
+</script></section><section data-markdown><script type="text/template">
+Beispiel
+
+```html
+<p id="hello" class="hello">Der Text</p>
+<p id="keinHello" class="hello">Ein weiterer Text</p>
+```
+
+```javascript
+var helloElement = document.getElementById('hello');
+var helloElements = document.getElementsByClassName('hello');
+
+var helloElement = document.querySelector('.hello');
+var helloElements = document.querySelectorAll('.hello');
+```
+</script></section><section data-markdown><script type="text/template">
+### Das Objekt [Element](https://wiki.selfhtml.org/wiki/JavaScript/DOM/Element)
+
+spiegelt in Javascript ein HTML-Element wieder.
+
+```html
+<p id="hello" class="hello">Der Text</p>
+```
+
+```javascript
+var helloElement = document.getElementById('hello');
+console.log(helloElement.classList); // DOMTokenList ["hello", value: "hello"]
+```
+
+[DOMTokenList](https://wiki.selfhtml.org/wiki/JavaScript/DOM/Element/classList)
+</script></section></section><section ><section data-markdown><script type="text/template">
+### Ereignisse
+</script></section><section data-markdown><script type="text/template">
+Damit Ereignisse, wie beispielsweise ein `Klick` von Javascript verwendet werden können, müssen diese `"registriert"` werden.
+Bei der Registrierung wird eine Funktion `mitgegeben`, die ausgeführt wird, wenn das Ereignis `eintrifft`.
+</script></section><section data-markdown><script type="text/template">
+[Liste aller Events](https://wiki.selfhtml.org/wiki/JavaScript/DOM/Event/%C3%9Cbersicht)
+
+[Event Object](https://wiki.selfhtml.org/wiki/JavaScript/DOM/Event)
+
+```html
+<p id="clickme">Klick auf mich</p>
+```
+
+```javascript
+var element = document.getElementById('clickme');
+var onClick = function(event) {
+  alert('Geklickt!');
+};
+element.addEventListener('click', onClick)
+```
+
+```javascript
+document.getElementById('clickme').addEventListener(
+  'click',
+  function(event) {
+    alert('Geklickt!');
+  },
+);
+```
+
+[Resultat](https://jsfiddle.net/05gxvcak/)
+</script></section></section></div>
+    </div>
+
+    <script src="./js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './plugin/zoom-js/zoom.js', async: true },
+        { src: './plugin/notes/notes.js', async: true },
+        { src: './plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"overview":true,"transition":"slide"}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

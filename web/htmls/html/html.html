@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>reveal-md</title>
+    <link rel="stylesheet" href="./css/reveal.css" />
+    <link rel="stylesheet" href="./css/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/github.css" />
+    <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./_assets/style.css" />
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><style>
+.reveal code {
+  background: lightgray;
+  padding: 5px;
+}
+</style>
+
+# HTML
+
+*Hyptertext Markup Language*
+</script></section><section  data-markdown><script type="text/template">
+HTML beschreibt die Struktur und Daten auf einer Webseite.
+</script></section><section ><section data-markdown><script type="text/template">
+HTML besteht aus Elementen und wird mit einer XML ähnlichen Sprache beschrieben.
+
+HTML ist __keine__ Programmiersprache. Es ist eine "Auszeichnungssprache".
+</script></section><section data-markdown><script type="text/template">
+XML Sprache
+
+(einfaches Beispiel)
+
+```xml
+<element attribut-a="wert" />
+```
+</script></section><section data-markdown><script type="text/template">
+XML Sprache
+
+(verschaltetes Beispiel)
+
+```xml
+<element attribut-a="wert1" attribut-b="wert2">
+  <kinder-element kinder-attribut="kinder-attribut">
+    Text
+  </kinder-element>
+</element>
+<element attribut-a="wert3" />
+```
+</script></section></section><section ><section data-markdown><script type="text/template">
+HTML Sprache
+</script></section><section data-markdown><script type="text/template">
+Ein HTML Dokument besteht immer aus folgenden "Elementen".
+Elemente haben alle eine Bedeutung und Funktion die festgelegt wurde.
+
+```html
+<html>
+  <head></head>
+  <body></body>
+</html>
+```
+</script></section></section><section ><section data-markdown><script type="text/template">
+### HTML __\<head\>__ Element
+
+dient dazu "Metainformationen" über das Dokument auszuzeichnen.
+
+Elemente im \<head\> Element sind __nicht__ direkt sichtbar!
+</script></section><section data-markdown><script type="text/template">
+### \<title\>
+
+Beschreibt den Titel des Dokuments. Oben in der Navigationsleiste im Browser.
+
+```html
+<head>
+  <title>Titel dieser Webseite</title>
+</head>
+```
+</script></section><section data-markdown><script type="text/template">
+### \<meta\>
+
+Beschreiben die Metadaten für Suchmachinen und Browser.
+
+```html
+<head>
+  <meta
+    name="description"
+    content="Lorem ipsum."
+  />
+  <meta
+    name="keywords"
+    content="Stichwort 1, Stichwort 2, Stichwort 3"
+  />
+  <meta
+    name="author"
+    content="Autorenname"
+  />
+</head>
+```
+</script></section><section data-markdown><script type="text/template">
+### \<link\>
+
+Bindet fremde Dokumente in die HTML Datei ein.
+Wird hauptsächlich für externe CSS Stylesheets benutzt.
+
+```html
+<head>
+  <link rel="stylesheet" type="text/css" href="theme.css">
+</head>
+```
+</script></section><section data-markdown><script type="text/template">
+### \<script\>
+
+Bindet Code einer Skriptsprache ein. Bspw. Javascript
+
+```html
+<head>
+  <script type="text/javascript">
+  ...
+  <script>
+  <script type="text/javascript" src=".../index.js">__SCRIPT_END__
+</head>
+```
+</script></section><section data-markdown><script type="text/template">
+### \<style\>
+
+Enthält CSS Auszeichnungen
+
+```html
+<head>
+  <style>
+    ...
+  </style>
+</head>
+```
+</script></section><section data-markdown><script type="text/template">
+
+Ein Beispiel:
+
+```html
+<html>
+  <head>
+    <title>Titel dieser Webseite</title>
+    <meta
+      name="description"
+      content="Beschreibung der Webseite für Google."
+    />
+    <script>...__SCRIPT_END__
+    <style>...</style>
+  </head>
+</html>
+```
+</script></section></section><section ><section data-markdown><script type="text/template">
+### HTML __\<body\>__ Element
+
+dient dazu die Rohdaten der Webseite anzuzeigen.
+Design und Funktion von Rohdaten werden dann von __CSS__ und __HTML__ manipuliert.
+</script></section><section data-markdown><script type="text/template">
+Bei HTML Elementen unterscheidet man zwischen:
+
+* Block Elementen
+* Inline Elementen
+</script></section><section data-markdown><script type="text/template">
+### Block Elemente
+
+erzeugen einen Block in dem ein Inhalt untergebracht wird.
+</script></section><section data-markdown><script type="text/template">
+### Inline Elemente
+
+unterbrechen nicht den Textfluß.
+</script></section><section data-markdown><script type="text/template">
+Beispiel:
+
+```html
+<p> <!-- Blockelement -->
+  <b>Fette<b> Schrift <!-- Inlineelement -->
+</p>
+```
+
+Resultat:
+<p><b>Fette</b> Schrift</p>
+</script></section></section><section ><section data-markdown><script type="text/template">
+## Die verschiedenen \<body> Elemente
+</script></section><section data-markdown><script type="text/template">
+### Überschriften \<h1>
+
+```html
+<h1>Überschrift 1</h1>
+<h2>Überschrift 2</h2>
+<h3>Überschrift 3</h3>
+<h4>Überschrift 4</h4>
+<h5>Überschrift 5</h5>
+<h6>Überschrift 6</h6>
+```
+</script></section><section data-markdown><script type="text/template">
+Resultat:
+<h1>Überschrift 1</h1>
+<h2>Überschrift 2</h2>
+<h3>Überschrift 3</h3>
+<h4>Überschrift 4</h4>
+<h5>Überschrift 5</h5>
+<h6>Überschrift 6</h6>
+</script></section><section data-markdown><script type="text/template">
+### Paragraph \<p>
+```html
+<p>
+  <b>Lorem</b> ipsum dolor sit amet, <u>consetetur</u> sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna <i>aliquyam erat</i>, sed diam voluptua.
+</p>
+```
+
+Resultat:
+<p>
+  <b>Lorem</b> ipsum dolor sit amet, <u>consetetur</u> sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna <i>aliquyam erat</i>, sed diam voluptua.
+</p>
+</script></section><section data-markdown><script type="text/template">
+### Bilder \<img>
+
+```html
+<img src="google.de/image.png" width="250" />
+```
+
+Resultat:
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/2000px-HTML5_logo_and_wordmark.svg.png" width="250" />
+</script></section><section data-markdown><script type="text/template">
+### Links \<a href="">
+
+```html
+<a href="http://google.com/">Linktext</a>
+```
+
+Resultat:
+<a href="google.com">Linktext</a>
+</script></section><section data-markdown><script type="text/template">
+### Listen \<ul> - \<li>
+
+```html
+<ul>
+  <li>Milch</li>
+  <li>Zucker</li>
+  <li>Eier</li>
+</ul>
+```
+
+Resultat:
+<ul>
+  <li>Milch</li>
+  <li>Zucker</li>
+  <li>Eier</li>
+</ul>
+</script></section><section data-markdown><script type="text/template">
+### Tabelle \<table> - \<tr> - \<td>
+
+```html
+<table>
+  <tr><td>Vorname</td><td>Nachname</td><tr>
+  <tr><td>Michael</td><td>Bykovski</td><tr>
+</table>
+```
+
+Resultat:
+<table>
+  <tr><td>Vorname</td><td>Nachname</td><tr>
+  <tr><td>Michael</td><td>Bykovski</td><tr>
+</table>
+</script></section><section data-markdown><script type="text/template">
+### Das Div Element [Link](https://developer.mozilla.org/de/docs/Web/HTML/Element/div)
+ist ein Inlineelement, was im Grunde keine Eigenschaften besitzt.
+Es ist dazu da, später bestimmte Elemente zu gruppieren und durch CSS und JS der Gruppe Eigenschaften zu verleihen.
+
+```html
+<div>
+  <p>Inhalt</p>
+</div>
+```
+</script></section></section><section ><section data-markdown><script type="text/template">
+## Alles zusammen
+</script></section><section data-markdown><script type="text/template">
+```html
+<html>
+  <head>
+    <title>Titel der Webseite</title>
+  </head>
+  <body>
+    <h1>Dies ist eine Überschrift</h1>
+    <p>Dies ist ein Paragraph</p>
+    <hr>
+    <h2>Dies ist eine Überschrift</h2>
+    <p>Dies ist ein Paragraph</p>
+    <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome.png" width="200px">
+  </body>
+</html>
+```
+
+[Resultat](https://jsfiddle.net/n8jxvtaw/)
+</script></section></section><section  data-markdown><script type="text/template">
+> In der Informatik gibt es nichts, was nicht dokumentiert ist.
+
+[SelfHTML Link](https://wiki.selfhtml.org/wiki/Schnell-Index/HTML)
+</script></section></div>
+    </div>
+
+    <script src="./js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './plugin/zoom-js/zoom.js', async: true },
+        { src: './plugin/notes/notes.js', async: true },
+        { src: './plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"overview":true,"transition":"slide"}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

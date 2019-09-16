@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>reveal-md</title>
+    <link rel="stylesheet" href="./css/reveal.css" />
+    <link rel="stylesheet" href="./css/theme/white.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/github.css" />
+    <link rel="stylesheet" href="./css/print/paper.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="./_assets/style.css" />
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><style>
+.reveal code {
+  background: lightgray;
+  padding: 5px;
+}
+</style>
+
+# CSS
+
+Cascading Style Sheets
+</script></section><section  data-markdown><script type="text/template">
+## CSS
+
+styled alle HTML Elemente und ihre Inhalte.
+</script></section><section ><section data-markdown><script type="text/template">
+## Aufbau
+
+Der Aufbau von CSS wurde nur für CSS erfunden. Es gibt somit keine ähnliche Auszeichnungssprache, die CSS gleicht.
+</script></section><section data-markdown><script type="text/template">
+### Syntax
+
+```css
+Selektor1 [, Selektor2 [, …] ] {
+    Eigenschaft-1: Wert-1;
+    …
+    Eigenschaft-n: Wert-n[;]
+}
+```
+</script></section><section data-markdown><script type="text/template">
+### Beispiel
+
+```css
+.first-text {
+  font-size: 14px;
+  font-weight: bold;
+}
+```
+</script></section></section><section ><section data-markdown><script type="text/template">
+## Selektoren
+
+Selektoren in CSS "selektieren" Elemente im HTML und fügen diesen ein Styling hinzu.
+
+[Link](https://de.wikipedia.org/wiki/Cascading_Style_Sheets)
+</script></section><section data-markdown><script type="text/template">
+### Einfache Selektoren
+
+|Selektor|Funktion|
+|--------|--------|
+|`*`|Jedes Element|
+|`E`|Jedes Element mit Elementnamen `E`|
+|`.c`|Jedes Element mit Attribut `class='c'`|
+</script></section><section data-markdown><script type="text/template">
+|Selektor|Funktion|
+|---|----|
+|`#myid`|Das Element mit Attribut `id='myid'`|
+|`[foo='bar']`|Jedes Element, deren Attribut `foo` mit dem Wert `bar`|
+</script></section><section data-markdown><script type="text/template">
+### Kombinatoren
+
+|Kombinator|Funktion|
+|----------|--------|
+|E F|Alle Elemente F, die Nachfahren von E sind|
+|E > F|Alle Elemente F, die ein Kind des Elements E sind|
+</script></section><section data-markdown><script type="text/template">
+### Beispiel
+
+```css
+p i {
+  color: blue;
+}
+p > i {
+  color: red;
+}
+```
+```html
+<p>
+  <i>Kind</i>
+  <span><i>Nachfahre</i></span>
+</p>
+```
+
+[Resultat](https://jsfiddle.net/god2cm6z/2/)
+</script></section><section data-markdown><script type="text/template">
+### Pseudoklassen
+
+Fangen immer mit `:` an.
+
+|Pseudoklasse|Funktion|
+|---|---|
+|:hover|das Element, über dem sich der Mauszeiger befindet|
+|:first-child|Element, welches das erste Kindelement ist|
+|::first-letter|erstes Zeichen|
+</script></section><section data-markdown><script type="text/template">
+Beispiel:
+
+```css
+a:hover {
+  font-decoration: line-through;
+}
+```
+
+[Beispiel](https://jsfiddle.net/wdv4o1zh/)
+</script></section></section><section ><section data-markdown><script type="text/template">
+## CSS Eigenschaften
+
+[Link](https://wiki.selfhtml.org/wiki/CSS/Eigenschaften)
+</script></section><section data-markdown><script type="text/template">
+Es gibt verschiedene Eigenschaften die durch einen `Selektor` auf einem Element angewendet werden können.
+</script></section><section data-markdown><script type="text/template">
+`Eigenschaften` besitzen einen `Namen` und einen `Wert`, wobei der Wert verschiedene `Typen` haben kann.
+[Link](https://wiki.selfhtml.org/wiki/CSS/Wertetypen/Zahlen,_Ma%C3%9Fe_und_Ma%C3%9Feinheiten)
+
+<aside class="notes"><ul>
+<li>Gehe die Einheiten in dem Link durch.</li>
+</ul>
+</aside></script></section><section data-markdown><script type="text/template">
+### Texteigenschaften
+
+```css
+p {
+  color: #32a852;
+  letter-spacing: 0.25em;
+  font-size: 16px;
+  font-stretch: extra-expanded;
+}
+```
+
+[Resultat](https://jsfiddle.net/q4je3km7/)
+</script></section><section data-markdown><script type="text/template">
+### Abstandseigenschaften
+
+```css
+.big-spacing {
+  margin: 20px;
+  padding-top: 30px;
+  padding-left: 20px;
+  width: 200px;
+  height: 200px;
+  border: 3px solid black;
+}
+```
+
+[Resultat](https://jsfiddle.net/0qwgy1rf/)
+</script></section><section data-markdown><script type="text/template">
+### Positionierung
+- `static` - statisch
+  - Inhalte folgen linear nacheinander, so wie sie im HTML-Dokument einander folgen.
+- `relative` - relativ
+  - Zunächst nicht anders als static.
+- `absolute` - absolut
+  - Das Element wird aus dem linearen Fluß genommen, sein ursprünglicher Raum kollabiert.
+</script></section><section data-markdown><script type="text/template">
+- `fixed` - fest
+  - Wie absolut, aber das Koordinatensystem des fixierten Elements ist der Viewport, nicht mehr das Dokument. Das Element wird nicht mehr mit dem Dokument gescrollt.
+- `sticky` - festgesteckt
+  - Wie fixed, aber das Element scrollt bis zu einem vorgegebenen Punkt und bleibt dann im Viewport fixiert
+- `inherit` - vererbt
+  - Das Element erbt die Art der Positionierung von seinem umfassenden Element.
+</script></section><section data-markdown><script type="text/template">
+[Beispiele](https://www.w3schools.com/css/css_positioning.asp)
+</script></section></section><section  data-markdown><script type="text/template">
+## CSS-Box-Modell
+
+![css-box-modell](https://upload.wikimedia.org/wikipedia/commons/7/7a/Boxmodell-detail.png)
+</script></section><section  data-markdown><script type="text/template">
+Weiter gehts mit Javascript...
+</script></section></div>
+    </div>
+
+    <script src="./js/reveal.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // Optional libraries used to extend on reveal.js
+      var deps = [
+        { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector('[data-markdown]'); } },
+        { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: './plugin/zoom-js/zoom.js', async: true },
+        { src: './plugin/notes/notes.js', async: true },
+        { src: './plugin/math/math.js', async: true }
+      ];
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        dependencies: deps
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal.getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"overview":true,"transition":"slide"}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>
