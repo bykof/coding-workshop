@@ -1,0 +1,84 @@
+<html>
+
+<head>
+  <title>My Calculator</title>
+  <style>
+    #calculator {
+      display: block;
+      margin: 0 auto;
+      margin-top: 100px;
+      width: 350px;
+      height: 350px;
+      font-family: Arial, Helvetica, sans-serif;
+      -webkit-box-shadow: 0 10px 15px 1px #000000;
+      box-shadow: 0 10px 15px 1px #000000;
+    }
+
+    #calculator #result {
+      height: 40px;
+      background-color: #FAEBD7;
+      text-align: right;
+      vertical-align: middle;
+      padding: 10px;
+      font-size: 24px;
+    }
+
+    #calculator .buttons {
+      display: grid;
+      margin: 15px 10px 0;
+      grid-template-columns: auto auto auto auto;
+      grid-template-rows: auto;
+      grid-column-gap: 10px;
+      grid-row-gap: 10px;
+    }
+
+    #calculator button {
+      padding: 0.75em;
+      border: 1px solid #000000;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="calculator">
+    <div id="result">0</div>
+    <div class="buttons">
+      <button type="button" class="number">7</button>
+      <button type="button" class="number">8</button>
+      <button type="button" class="number">9</button>
+
+      <button type="button" class="operation">+</button>
+
+      <button type="button" class="number">4</button>
+      <button type="button" class="number">5</button>
+      <button type="button" class="number">6</button>
+
+      <button type="button" class="operation">-</button>
+
+      <button type="button" class="number">1</button>
+      <button type="button" class="number">2</button>
+      <button type="button" class="number">3</button>
+
+      <button type="button" class="operation">*</button>
+
+      <div></div>
+      <button type="button" class="number">0</button>
+      <div></div>
+      <button type="button" class="operation">/</button>
+
+      <div></div>
+      <div></div>
+      <div></div>
+      <button type="button" class="operation">=</button>
+    </div>
+  </div>
+  <script type="text/javascript">
+
+  </script>
+</body>
+
+</html>
